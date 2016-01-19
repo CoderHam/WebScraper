@@ -1,0 +1,42 @@
+{
+  "name": "webpage",
+  "version": "0.3.0",
+  "description": "Webpage Boilerplate Component",
+  "main": "SOURCE/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "boilerplate",
+    "webpage",
+    "component"
+  ],
+  "author": {
+    "name": "serapath",
+    "email": "dev@serapath.de",
+    "url": "http://www.github.com/serapath"
+  },
+  "license": "MIT",
+  "gitHead": "2839c56a95bd447b78de503b15d619185750e7c4",
+  "_id": "webpage@0.3.0",
+  "_shasum": "15c8c99e822b499e9981ae6876539b423448b8e7",
+  "_from": "webpage@*",
+  "_npmVersion": "2.8.3",
+  "_nodeVersion": "1.8.1",
+  "_npmUser": {
+    "name": "serapath",
+    "email": "dev@serapath.de"
+  },
+  "maintainers": [
+    {
+      "name": "serapath",
+      "email": "dev@serapath.de"
+    }
+  ],
+  "dist": {
+    "shasum": "15c8c99e822b499e9981ae6876539b423448b8e7",
+    "tarball": "http://registry.npmjs.org/webpage/-/webpage-0.3.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/webpage/-/webpage-0.3.0.tgz"
+}

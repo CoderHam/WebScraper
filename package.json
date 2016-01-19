@@ -1,0 +1,19 @@
+{
+  "name": "scraping",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "*",
+    "request": "*",
+    "express":"*",
+    "fs":"*",
+    "webdriverio":"*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Oops! no test specified\" && exit 1"
+  },
+  "author": "Hemant Jain",
+  "license": "ISC",
+  "description": ""
+}
