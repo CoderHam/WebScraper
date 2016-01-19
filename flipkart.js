@@ -5,7 +5,7 @@ var app = express();
 
 var url = 'www.flipkart.com';
 var s = '/search?q='
-var word ='Lenovo' //producr name
+var word ='Lenovo' //product name
 var comurl = url + s + word;
 var all = '.pu-details';
 var name = '.pu-title';
@@ -23,7 +23,7 @@ var options = {
   }
 }
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.send('Welcome, goto /flipkart_scrape');
 });
 
 app.get('/flipkart_scrape', function (req, response) {
