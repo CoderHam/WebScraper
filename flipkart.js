@@ -5,7 +5,7 @@ var app = express();
 
 var url = 'www.flipkart.com';
 var s = '/search?q='
-var word ='Lenovo' //product name
+var word ='Lenovo' //product name (replace ' ' with %20)
 var comurl = url + s + word;
 var all = '.pu-details';
 var name = '.pu-title';

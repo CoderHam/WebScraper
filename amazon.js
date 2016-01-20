@@ -5,7 +5,7 @@ var app = express();
 
 var url = 'www.amazon.in';
 var s = '/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords='
-var word ='Lenovo' //product name
+var word ='Lenovo' //product name (replace ' ' with %20)
 var comurl = url + s + word;
 // var all = '.pu-details';
 var name = '.s-access-detail-page';
