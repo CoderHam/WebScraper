@@ -1,32 +1,35 @@
 var http = require('http');
 var cheerio = require('cheerio');
 var express = require('express');
+var bodyParser = require("body-parser");
 var app = express();
 
 var url = 'www.flipkart.com';
 var s = '/search?q='
 var word ='Lenovo' //product name (replace ' ' with %20)
-var comurl = url + s + word;
 var all = '.pu-details';
 var name = '.pu-title';
 var cat = '.pu-category';
 var price = '.pu-price';
 var pdetails = '.pu-usp';
 
-console.log('Scraping data from Flipkart URl: '+comurl);
+app.use(bodyParser.urlencoded({ extended: true }));
 
-var options = {
-    host: url,
-    path: s + word,
-    headers: {
-    'User-Agent': 'request'
-  }
-}
 app.get('/', function (req, res) {
-  res.send('Welcome, goto /flipkart_scrape');
+  res.sendFile(__dirname + '/flipkart.html');
 });
 
-app.get('/flipkart_scrape', function (req, response) {
+app.post('/flipkart_scrape', function (req, response) {
+  word = req.body.prod;
+  console.log('Poduct:'+word);
+  console.log('Scraping data from Flipkart URl: '+url + s + word);
+  var options = {
+      host: url,
+      path: s + word,
+      headers: {
+      'User-Agent': 'request'
+    }
+  }
   var request = http.request(options, function (res) {
       var code = '';
       res.on('data', function (chunk) {
@@ -48,6 +51,7 @@ app.get('/flipkart_scrape', function (req, response) {
   });
   request.end();
 });
+
 app.listen(3000, function () {
   console.log('Server listening on port 3000!');
 });
