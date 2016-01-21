@@ -1,6 +1,6 @@
 # WebScraper
 
-A Node.js based web-scraper for e-commerce websites including Flipkart, Amazon, Snapdeal, Ebay.
+A Node.js based web-scraper for e-commerce websites including Flipkart, Amazon, Snapdeal, Ebay etc.
 
 Once in the right directory, start the local server as:
 ```
@@ -8,8 +8,8 @@ node flipkart.js
 ```
 Then visit:  
 ```
-http://localhost:3000/flipkart_scrape
+http://localhost:3000
 ```
-The output will be visible via both terminal and the webpage.
+Enter the product name click on Search. You will be re-directed to /flikart_scrape where the output will be visible. The same can also be viewed via the  terminal.
 
-Proceed in the same way with amazon.js, snapdeal.js and ebay.js
+Proceed in a similar way with amazon.js, snapdeal.js and ebay.js
