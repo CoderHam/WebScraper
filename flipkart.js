@@ -47,13 +47,21 @@ app.post('/flipkart_scrape', function (req, response) {
           //   scraped = scraped + data.text()+';';
           //   });
           //   response.send(scraped);
-          scraper(purl).filter(function() { // select one of all, name, price, cat, pdetails,
+          // scraper(purl).filter(function() {
+          //   var data = scraper(this);
+          //   var read = url + data.attr('href');
+          //   console.log(read+"\n");
+          //   scraped = scraped + read + ';';
+          //   });
+          //   response.send(scraped);
+          scraper(purl).filter(function() {
             var data = scraper(this);
-            var read = url + data.attr('href');
+            var read = data.children().attr('data-src');
             console.log(read+"\n");
             scraped = scraped + read + ';';
             });
             response.send(scraped);
+            console.log("..Ending");
       });
   });
   request.on('error', function (e) {
