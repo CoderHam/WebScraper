@@ -20,7 +20,8 @@ app.get('/', function (req, res) {
 });
 
 app.post('/snapdeal_scrape', function (req, response) {
-  word = req.body.prod;
+  word = req.body.prod
+  word = word.replace(/ /g,"%20");
   console.log('Poduct:'+word);
   console.log('Scraping data from Snapdeal URl: '+url + s + word);
   var options = {

@@ -21,6 +21,7 @@ app.get('/', function (req, res) {
 
 app.post('/amazon_scrape', function (req, response) {
   word = req.body.prod;
+  word = word.replace(/ /g,"%20");
   console.log('Poduct:'+word);
   console.log('Scraping data from Amazon URl: '+url + s + word);
   var options = {

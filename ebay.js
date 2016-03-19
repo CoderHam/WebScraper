@@ -21,6 +21,7 @@ app.get('/', function (req, res) {
 
 app.post('/ebay_scrape', function (req, response) {
   word = req.body.prod;
+  word = word.replace(/ /g,"%20");
   console.log('Poduct:'+word);
   console.log('Scraping data from EBay URl: '+url + s + word);
   var options = {

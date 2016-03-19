@@ -12,6 +12,7 @@ var name = '.pu-title';
 var cat = '.pu-category';
 var price = '.pu-price';
 var pdetails = '.pu-usp';
+var purl = '.pu-image'
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,6 +22,7 @@ app.get('/', function (req, res) {
 
 app.post('/flipkart_scrape', function (req, response) {
   word = req.body.prod;
+  word = word.replace(/ /g,"%20");
   console.log('Poduct:'+word);
   console.log('Scraping data from Flipkart URl: '+url + s + word);
   var options = {
