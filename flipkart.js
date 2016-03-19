@@ -40,10 +40,18 @@ app.post('/flipkart_scrape', function (req, response) {
       res.on('end', function () {
           var scraper = cheerio.load(code);
           var scraped = '';
-          scraper(name).filter(function() { // select one of all, name, price, cat, pdetails,
+          // scraper(name).filter(function() { // select one of all, name, price, cat, pdetails,
+          //   var data = scraper(this);
+          //   var read = data.text();
+          //   console.log(data.text());
+          //   scraped = scraped + data.text()+';';
+          //   });
+          //   response.send(scraped);
+          scraper(purl).filter(function() { // select one of all, name, price, cat, pdetails,
             var data = scraper(this);
-            console.log(data.text());
-            scraped = scraped + data.text()+';';
+            var read = url + data.attr('href');
+            console.log(read+"\n");
+            scraped = scraped + read + ';';
             });
             response.send(scraped);
       });
