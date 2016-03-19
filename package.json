@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "*",
     "cheerio": "*",
+    "express": "*",
+    "fs": "*",
+    "mysql": "^2.10.2",
     "request": "*",
-    "express":"*",
-    "fs":"*",
-    "webdriverio":"*",
-    "body-parser":"*"
+    "webdriverio": "*"
   },
   "devDependencies": {},
   "scripts": {
