@@ -40,21 +40,35 @@ app.post('/flipkart_scrape', function (req, response) {
       res.on('end', function () {
           var scraper = cheerio.load(code);
           var scraped = '';
-          // scraper(name).filter(function() { // select one of all, name, price, cat, pdetails,
-          //   var data = scraper(this);
-          //   var read = data.text();
-          //   console.log(data.text());
-          //   scraped = scraped + data.text()+';';
-          //   });
-          //   response.send(scraped);
-          // scraper(purl).filter(function() {
-          //   var data = scraper(this);
-          //   var read = url + data.attr('href');
-          //   console.log(read+"\n");
-          //   scraped = scraped + read + ';';
-          //   });
-          //   response.send(scraped);
-          scraper(purl).filter(function() {
+          scraper(name).filter(function() { // scrape name
+            var data = scraper(this);
+            var read = data.text();
+            console.log(data.text());
+            scraped = scraped + data.text()+';';
+            });
+          scraped = scraped + "\n";
+          scraper(cat).filter(function() { // scrape category
+            var data = scraper(this);
+            var read = data.text();
+            console.log(data.text());
+            scraped = scraped + data.text()+';';
+            });
+          scraped = scraped + "\n";
+          scraper(price).filter(function() { // scrape price
+            var data = scraper(this);
+            var read = data.text();
+            console.log(data.text());
+            scraped = scraped + data.text()+';';
+            });
+          scraped = scraped + "\n";
+          scraper(purl).filter(function() { // scrape product url
+            var data = scraper(this);
+            var read = url + data.attr('href');
+            console.log(read+"\n");
+            scraped = scraped + read + ';';
+            });
+            scraped = scraped + "\n";
+          scraper(purl).filter(function() { // scrape image url
             var data = scraper(this);
             var read = data.children().attr('data-src');
             console.log(read+"\n");
