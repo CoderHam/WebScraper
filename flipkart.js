@@ -22,8 +22,8 @@ app.get('/', function (req, res) {
 
 app.post('/flipkart_scrape', function (req, response) {
   word = req.body.prod;
-  word = word.replace(/ /g,"%20");
   console.log('Poduct:'+word);
+  word = word.replace(/ /g,"%20");
   console.log('Scraping data from Flipkart URl: '+url + s + word);
   var options = {
       host: url,
@@ -43,22 +43,22 @@ app.post('/flipkart_scrape', function (req, response) {
           scraper(name).filter(function() { // scrape name
             var data = scraper(this);
             var read = data.text();
-            console.log(data.text());
-            scraped = scraped + data.text()+';';
+            console.log(read);
+            scraped = scraped + read +';';
             });
           scraped = scraped + "\n";
           scraper(cat).filter(function() { // scrape category
             var data = scraper(this);
             var read = data.text();
-            console.log(data.text());
-            scraped = scraped + data.text()+';';
+            console.log(read);
+            scraped = scraped + read +';';
             });
           scraped = scraped + "\n";
           scraper(price).filter(function() { // scrape price
             var data = scraper(this);
             var read = data.text();
-            console.log(data.text());
-            scraped = scraped + data.text()+';';
+            console.log(read);
+            scraped = scraped + read +';';
             });
           scraped = scraped + "\n";
           scraper(purl).filter(function() { // scrape product url
@@ -67,7 +67,7 @@ app.post('/flipkart_scrape', function (req, response) {
             console.log(read+"\n");
             scraped = scraped + read + ';';
             });
-            scraped = scraped + "\n";
+          scraped = scraped + "\n";
           scraper(purl).filter(function() { // scrape image url
             var data = scraper(this);
             var read = data.children().attr('data-src');

@@ -12,6 +12,7 @@ var name = '.s-access-detail-page';
 //var cat = '.pu-category'; // a-text-bold inside a-size-small a-link-normal a-text-normal
 var price = '.s-price';
 // var pdetails = '.pu-usp';
+var purl = '.s-access-image'
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,8 +22,8 @@ app.get('/', function (req, res) {
 
 app.post('/amazon_scrape', function (req, response) {
   word = req.body.prod;
-  word = word.replace(/ /g,"%20");
   console.log('Poduct:'+word);
+  word = word.replace(/ /g,"%20");
   console.log('Scraping data from Amazon URl: '+url + s + word);
   var options = {
       host: url,
@@ -39,12 +40,35 @@ app.post('/amazon_scrape', function (req, response) {
       res.on('end', function () {
           var scraper = cheerio.load(code);
           var scraped = '';
-          scraper(name).filter(function() { // select one from name, price
+          scraper(name).filter(function() { // scarpe name
             var data = scraper(this);
-            console.log(data.text());
-            scraped = scraped + data.text()+';';
+            var read = data.text();
+            console.log(read);
+            scraped = scraped + read +';';
             });
-            response.send(scraped);
+          scraped = scraped + "\n";
+          scraper(price).filter(function() { // scrape price
+            var data = scraper(this);
+            var read = data.text();
+            console.log(read);
+            scraped = scraped + read +';';
+            });
+          scraped = scraped + "\n";
+          scraper(purl).filter(function() { // scrape image url
+            var data = scraper(this);
+            var read = data.attr('src');
+            console.log(read+"\n");
+            scraped = scraped + read + ';';
+            });
+          scraped = scraped + "\n";
+          scraper(purl).filter(function() { // scrape product url
+            var data = scraper(this);
+            var read = data.parent().attr('href');
+            console.log(read+"\n");
+            scraped = scraped + read + ';';
+            });
+          response.send(scraped);
+          console.log("..Ending");
       });
   });
   request.on('error', function (e) {
