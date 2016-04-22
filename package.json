@@ -7,7 +7,7 @@
     "cheerio": "*",
     "express": "*",
     "fs": "*",
-    "mysql": "^2.10.2",
+    "mysql": "*",
     "request": "*",
     "webdriverio": "*"
   },
@@ -17,5 +17,13 @@
   },
   "author": "Hemant Jain",
   "license": "ISC",
-  "description": ""
+  "description": "A Node.js based web-scraper for e-commerce websites including Flipkart, Amazon, Snapdeal, Ebay etc.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderHam/WebScraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CoderHam/WebScraper/issues"
+  },
+  "homepage": "https://github.com/CoderHam/WebScraper#readme"
 }
