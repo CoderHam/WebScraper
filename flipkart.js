@@ -104,31 +104,35 @@ app.post('/flipkart_scrape', function (req, response) {
   });
   request.end();
   var site = 'Flipkart';
-  for (var j = 0; j <= c ; j++){
+
+  var conn = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'ham',
+    password: 'mypass',
+    database: 'contracart'
+  });
+
+  conn.connect(function(err){
+    if(err){
+      console.log('Error connecting to Db' + err.stack);
+      return;
+    }
+    console.log('Connection established');
+  });
+
+  for (var j = 0; j < c ; j++){
     var item = { item_name: iarr[0][j], item_price: iarr[1][j] , item_cat: iarr[2][j], item_url: iarr[3][j], item_img: iarr[4][j], item_site: site, search_term: word };
 
-    var conn = mysql.createConnection({
-      host: '127.0.0.1',
-      user: 'ham',
-      password: 'mypass',
-      database: 'contracart'
+    conn.query('INSERT INTO test_cart SET ?', item, function(err,res){
+      if(err)
+        throw err;
+      console.log('Last insert ID:', res.insertId);
     });
-
-    conn.connect(function(err){
-      if(err){
-        console.log('Error connecting to Db' + err.stack);
-        return;
-      }
-      console.log('Connection established');
-    });
-
-    // conn.query('INSERT INTO test_cart SET ?', item, function(err,res){
-    //   if(err)
-    //     throw err;
-    //   console.log('Last insert ID:', res.insertId);
-    // });
 
   }
+
+  conn.end(function(err) {
+  });
 
 });
 
