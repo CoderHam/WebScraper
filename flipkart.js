@@ -6,14 +6,14 @@ var mysql = require("mysql");
 var app = express();
 
 var url = 'www.flipkart.com';
-var s = '/search?q='
+var s = '/search?q=';
 var word ='Lenovo' //product name (replace ' ' with %20)
 var all = '.pu-details';
 var name = '.pu-title';
 //var cat = '.pu-category';
 var price = '.pu-final';
 var pdetails = '.pu-usp';
-var purl = '.pu-image'
+var purl = '.pu-image';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -134,7 +134,7 @@ app.post('/flipkart_scrape', function (req, response) {
       console.log(e.message);
   });
   request.end();
-  
+
 });
 
 app.listen(3000, function () {

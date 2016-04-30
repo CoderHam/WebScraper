@@ -5,14 +5,14 @@ var bodyParser = require("body-parser");
 var app = express();
 
 var url = 'www.snapdeal.com';
-var s = '/search?keyword='
+var s = '/search?keyword=';
 var word ='Lenovo' //product name (replace ' ' with %20)
 // var all = '.pu-details';
 var name = '.product-title';
 // var cat = '.pu-category';
 var price = '.product-price';
 // var pdetails = '.pu-usp';
-var purl = '.product-image'
+var purl = '.product-image';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -56,7 +56,7 @@ app.post('/snapdeal_scrape', function (req, response) {
           scraped = scraped + "\n";
           scraper(purl).filter(function() { // scrape image url
             var data = scraper(this);
-            var read = data.attr('lazysrc');
+            var read = data.attr('data-src');
             if (read == undefined)
               read = data.attr('src');
             console.log(read+"\n");

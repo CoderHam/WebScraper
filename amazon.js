@@ -5,14 +5,14 @@ var bodyParser = require("body-parser");
 var app = express();
 
 var url = 'www.amazon.in';
-var s = '/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords='
-var word ='Lenovo' //product name (replace ' ' with %20)
+var s = '/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=';
+var word ='Lenovo';  //product name (replace ' ' with %20)
 // var all = '.pu-details';
 var name = '.s-access-detail-page';
 //var cat = '.pu-category'; // a-text-bold inside a-size-small a-link-normal a-text-normal
 var price = '.s-price';
 // var pdetails = '.pu-usp';
-var purl = '.s-access-image'
+var purl = '.s-access-image';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

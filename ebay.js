@@ -12,7 +12,7 @@ var name = '.lvtitle';
 // var cat = '.pu-category';
 var price = '.prc';
 // var pdetails = '.pu-usp';
-var purl = '.imgWr2'
+var purl = '.imgWr2';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
