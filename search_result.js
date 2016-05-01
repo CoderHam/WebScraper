@@ -25,7 +25,7 @@ conn.query('SELECT * FROM test_cart WHERE SEARCH_TERM = ?', search_term ,functio
   console.log('Data received from Db:\n');
   //console.log(rows);
   for (var i = 0; i < rows.length; i++) {
-  console.log(rows[i]);
+  //console.log(rows[i]);
   };
 });
 

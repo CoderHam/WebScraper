@@ -4,8 +4,8 @@ var express = require('express');
 // Create a connection to the db
 var conn = mysql.createConnection({
   host: '127.0.0.1',
-  user: 'ham',
-  password: 'mypass',
+  user: 'root',
+  password: 'hamsam10101',
   database: 'contracart'
 });
 

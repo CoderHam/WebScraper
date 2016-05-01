@@ -4,6 +4,7 @@ var express = require('express');
 var bodyParser = require("body-parser");
 var mysql = require("mysql");
 var app = express();
+var serveStatic = require('serve-static');
 
 var url = 'www.flipkart.com';
 var s = '/search?q=';
@@ -17,8 +18,10 @@ var purl = '.pu-image';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use((serveStatic(__dirname)));
+
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/flipkart.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.post('/flipkart_scrape', function (req, response) {
@@ -46,7 +49,7 @@ app.post('/flipkart_scrape', function (req, response) {
       });
       res.on('end', function () {
           var scraper = cheerio.load(code);
-          var scraped = '';
+          var scraped = '<html><body>';
           scraper(name).filter(function() { // scrape name
             var data = scraper(this);
             var read = data.text();
@@ -125,7 +128,7 @@ app.post('/flipkart_scrape', function (req, response) {
 
             conn.end(function(err) {
             });
-
+            scraped = scraped + "</body></html>";
             response.send(scraped);
             console.log("..Ending");
       });

@@ -9,7 +9,9 @@
     "fs": "*",
     "mysql": "*",
     "request": "*",
-    "webdriverio": "*"
+    "webdriverio": "*",
+    "serve-static": "*",
+    "connect": "*"
   },
   "devDependencies": {},
   "scripts": {
