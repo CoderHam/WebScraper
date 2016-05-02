@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 <!DOCTYPE HTML>
 <head>
 <title> ContraCart </title>
@@ -65,9 +63,18 @@
 			    	<div class="clear"></div>
      			</ul>
 	     	</div>
-	     	<div class="search_box">
-	     		<form action="/flipkart_scrape" method="post">
-	     			<input type="text" value="Search" name="prod" id="prod" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
+        <div class="search_box">
+	     		<form action="/contra_scrape" method="post">
+            <input type="text" value="Search" name="prod" id="prod" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+            <input type="submit" value="">
+            <select name="site" id="site">
+              <option value="Flipkart">Flipkart</option>
+              <option value="Amazon">Amazon</option>
+              <option value="Snapdeal">Snapdeal</option>
+              <option value="Ebay">Ebay</option>
+              <!--<option value="All">All</option>-->
+            </select>
+
 	     		</form>
 	     	</div>
 	     	<div class="clear"></div>

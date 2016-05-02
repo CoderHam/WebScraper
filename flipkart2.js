@@ -26,7 +26,9 @@ app.get('/', function (req, res) {
 
 app.post('/flipkart_scrape', function (req, response) {
   word = req.body.prod;
+  site = req.body.site;
   console.log('Poduct:'+word);
+  console.log('Site:'+site);
   word = word.replace(/ /g,"%20");
   console.log('Scraping data from Flipkart URl: '+url + s + word);
   var options = {
@@ -123,7 +125,7 @@ app.post('/flipkart_scrape', function (req, response) {
                 scraped = scraped + "<div class=\"section group\">";
               }
 
-              scraped = scraped + "<div class=\"grid_1_of_4 images_1_of_4\"><a href=\"http://"+iarr[3][j]+"\"><img src=\""+iarr[4][j]+"\" alt=\"\" /></a><h3>"+iarr[0][j] + "</h3><div class=\"price-details\"><div class=\"price-number\"><p><span class=\"rupees\">"+iarr[1][j]+"</span></p></div><div class=\"add-cart\"><h4><a href=\"http://"+iarr[3][j]+"\">View on Website</a></h4></div><div class=\"clear\"></div></div></div>";
+              scraped = scraped + "<div class=\"grid_1_of_4 images_1_of_4\"><a href=\"http://"+iarr[3][j]+"\"><img src=\""+iarr[4][j]+"\" alt=\"\" /></a><h3>"+iarr[0][j] + "</h3><div class=\"price-details\"><div class=\"price-number\"><p><span class=\"rupees\">"+iarr[1][j]+"</span></p></div><div class=\"add-cart\"><h4><a href=\"http://"+iarr[3][j]+"\">View on Website</a></h4></div><div class=\"clear\"><img height = \"60\" src = \"http://www.nextbigwhat.com/wp-content/uploads/2015/05/New-Flipkart-Logo.jpg\"></div></div></div>";
 
               if(j % 4 == 3){
               scraped = scraped + "</div>";
